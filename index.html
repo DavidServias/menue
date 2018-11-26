@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<html>
+<body>
+
+<div id="app" :style="appStyle">
+  <h1>{{menuTitle}}</h1>
+  <h3>{{subTitle}}</h3>
+  <div v-for="item in items" @click="toggleDetails(item)"
+       :style="itemStyle">
+    <p> <span v-if="item.showDetails">-</span>
+        <span v-else-if="!item.showDetails">+</span>
+        <strong>{{item.title}}</strong>
+    </p>
+    <div id="details-div" v-show="item.showDetails">
+      <p id="details" v-for="detail in item.details">&#10004; {{detail}}</p></div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="menue.js"></script>
+</body>
+
+</html>
